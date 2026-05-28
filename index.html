@@ -1,101 +1,577 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
-  <title>Blog di Facilitazione Digitale</title>
+  <title>Digitale Facile | Blog per cittadini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
+    :root {
+      --blu-istituzionale: #0057B8;
+      --blu-scuro: #003A70;
+      --azzurro: #00AEEF;
+      --azzurro-chiaro: #EAF7FF;
+      --verde-digitale: #00A676;
+      --giallo-evidenza: #FFD43B;
+      --grigio-testo: #1F2937;
+      --grigio-chiaro: #F4F7FB;
+      --bianco: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--grigio-chiaro);
+      color: var(--grigio-testo);
       line-height: 1.6;
-      background: #f4f6f8;
-      color: #222;
+    }
+
+    .top-strip {
+      background: var(--blu-scuro);
+      color: white;
+      font-size: 14px;
+      padding: 8px 20px;
+      text-align: center;
     }
 
     header {
       background: white;
-      padding: 30px;
-      border-radius: 16px;
-      margin-bottom: 25px;
-      border-left: 8px solid #2563eb;
+      border-bottom: 1px solid #dde5ef;
     }
 
-    article {
+    .header-inner {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .logos {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      background: var(--azzurro-chiaro);
+      border: 1px solid #ccecff;
+      font-weight: bold;
+      color: var(--blu-scuro);
+    }
+
+    .logo-symbol {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blu-istituzionale), var(--azzurro));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    .logo-repubblica {
+      background: #f5f8ff;
+      border-color: #d9e6ff;
+    }
+
+    .logo-repubblica .logo-symbol {
+      background: linear-gradient(135deg, var(--blu-scuro), var(--verde-digitale));
+    }
+
+    .site-title {
+      text-align: right;
+    }
+
+    .site-title h1 {
+      margin: 0;
+      color: var(--blu-scuro);
+      font-size: 30px;
+    }
+
+    .site-title p {
+      margin: 4px 0 0;
+      color: #4b5563;
+      font-size: 16px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--blu-istituzionale), var(--azzurro));
+      color: white;
+      padding: 58px 20px;
+    }
+
+    .hero-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .hero h2 {
+      font-size: 44px;
+      line-height: 1.15;
+      max-width: 820px;
+      margin: 0 0 18px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 780px;
+      margin: 0 0 26px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--giallo-evidenza);
+      color: #1f2937;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
       background: white;
-      padding: 25px;
-      border-radius: 16px;
-      margin-bottom: 20px;
+      color: var(--blu-scuro);
+      padding: 12px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    h1 {
+    .button.secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    nav {
+      background: var(--bianco);
+      border-bottom: 1px solid #dde5ef;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav ul {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      list-style: none;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--blu-scuro);
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: var(--azzurro);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 38px auto;
+      padding: 0 20px;
+    }
+
+    .intro {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      margin-bottom: 30px;
+      border-left: 8px solid var(--verde-digitale);
+    }
+
+    .intro h2 {
       margin-top: 0;
-      color: #1e3a8a;
+      color: var(--blu-scuro);
+      font-size: 30px;
     }
 
-    h2 {
+    .section-title {
+      margin: 40px 0 18px;
+    }
+
+    .section-title h2 {
+      color: var(--blu-scuro);
+      font-size: 30px;
+      margin-bottom: 6px;
+    }
+
+    .section-title p {
+      margin-top: 0;
+      color: #4b5563;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      border-top: 7px solid var(--blu-istituzionale);
+      min-height: 315px;
+    }
+
+    .card:nth-child(2) {
+      border-top-color: var(--azzurro);
+    }
+
+    .card:nth-child(3) {
+      border-top-color: var(--giallo-evidenza);
+    }
+
+    .card:nth-child(4) {
+      border-top-color: var(--verde-digitale);
+    }
+
+    .card:nth-child(5) {
+      border-top-color: var(--blu-scuro);
+    }
+
+    .categoria {
+      display: inline-block;
+      color: var(--blu-istituzionale);
+      background: var(--azzurro-chiaro);
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin: 0 0 12px;
       color: #111827;
     }
 
-    .data {
-      color: #666;
-      font-size: 14px;
+    .card p {
+      margin-bottom: 18px;
+    }
+
+    .read-more {
+      color: var(--blu-istituzionale);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    .notice {
+      margin-top: 35px;
+      background: #fff8db;
+      border-left: 8px solid var(--giallo-evidenza);
+      padding: 25px;
+      border-radius: 18px;
+    }
+
+    .notice h2 {
+      margin-top: 0;
+      color: #6b5300;
+    }
+
+    .info-band {
+      margin-top: 35px;
+      background: var(--blu-scuro);
+      color: white;
+      border-radius: 22px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .info-item {
+      border-left: 4px solid var(--azzurro);
+      padding-left: 15px;
+    }
+
+    .info-item strong {
+      display: block;
+      font-size: 23px;
+      margin-bottom: 4px;
     }
 
     footer {
-      margin-top: 30px;
+      background: #0f172a;
+      color: white;
+      margin-top: 50px;
+      padding: 35px 20px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
       font-size: 14px;
-      color: #666;
-      text-align: center;
+    }
+
+    .footer-inner strong {
+      color: var(--azzurro);
+    }
+
+    @media (max-width: 700px) {
+      .site-title {
+        text-align: left;
+      }
+
+      .hero h2 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      nav {
+        position: static;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <div class="top-strip">
+    Blog dimostrativo per esercitazione didattica sulla facilitazione digitale
+  </div>
+
   <header>
-    <h1>Blog di Facilitazione Digitale</h1>
-    <p>
-      Questo è un blog creato come esercitazione durante un corso dedicato
-      alla facilitazione digitale.
-    </p>
+    <div class="header-inner">
+
+      <div class="logos">
+
+        <!-- Logo testuale simulato Punto Digitale Facile -->
+        <div class="logo-box">
+          <div class="logo-symbol">P</div>
+          <div>
+            Punto<br>
+            Digitale Facile
+          </div>
+        </div>
+
+        <!-- Logo testuale simulato Repubblica Digitale -->
+        <div class="logo-box logo-repubblica">
+          <div class="logo-symbol">RD</div>
+          <div>
+            Repubblica<br>
+            Digitale
+          </div>
+        </div>
+
+      </div>
+
+      <div class="site-title">
+        <h1>Digitale Facile</h1>
+        <p>Il blog che avvicina i cittadini ai servizi digitali</p>
+      </div>
+
+    </div>
   </header>
 
-  <article>
-    <p class="data">28 maggio 2026</p>
-    <h2>Il mio primo articolo</h2>
-    <p>
-      Oggi abbiamo creato una semplice pagina web usando GitHub.
-      L’obiettivo dell’esercitazione è capire come si pubblica un contenuto online.
-    </p>
-    <p>
-      Non serve essere programmatori: basta conoscere alcuni passaggi fondamentali
-      e usare gli strumenti giusti.
-    </p>
-  </article>
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-badge">Competenze digitali per la vita quotidiana</span>
+      <h2>Capire il digitale, usarlo meglio, vivere con più autonomia</h2>
+      <p>
+        Una guida semplice per orientarsi tra identità digitale, servizi pubblici online,
+        sicurezza informatica, salute digitale e opportunità offerte dai Punti Digitale Facile.
+      </p>
 
-  <article>
-    <p class="data">28 maggio 2026</p>
-    <h2>Cosa ho imparato</h2>
-    <p>
-      Ho imparato che una pagina web può essere composta anche da un solo file HTML.
-      GitHub Pages permette di pubblicarla gratuitamente online.
-    </p>
-  </article>
+      <div class="hero-actions">
+        <a class="button" href="#articoli">Leggi gli articoli</a>
+        <a class="button secondary" href="#obiettivo">Scopri il progetto</a>
+      </div>
+    </div>
+  </section>
 
-  <article>
-    <p class="data">28 maggio 2026</p>
-    <h2>Perché è utile per un facilitatore digitale</h2>
-    <p>
-      Un facilitatore digitale aiuta le persone a usare meglio gli strumenti online.
-      Saper creare una piccola pagina web aiuta a comprendere meglio come funziona
-      la pubblicazione dei contenuti su Internet.
-    </p>
-  </article>
+  <nav>
+    <ul>
+      <li><a href="#facilitazione">Facilitazione Digitale</a></li>
+      <li><a href="#cie">Identità Digitale CIE</a></li>
+      <li><a href="#cybersicurezza">Cybersicurezza</a></li>
+      <li><a href="#pa">Servizi Digitali PA</a></li>
+      <li><a href="#fse">Salute Digitale FSE</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+
+    <section class="intro" id="obiettivo">
+      <h2>Un blog pensato per cittadini, famiglie e persone meno esperte</h2>
+      <p>
+        Questo spazio nasce come esercitazione, ma simula un vero blog di servizio:
+        pochi tecnicismi, esempi concreti, linguaggio chiaro e attenzione ai problemi
+        quotidiani delle persone.
+      </p>
+      <p>
+        Il digitale non deve essere una barriera. Deve diventare uno strumento utile:
+        per accedere ai servizi pubblici, proteggere i propri dati, consultare documenti
+        sanitari, effettuare pagamenti, prenotare prestazioni e comunicare con la Pubblica
+        Amministrazione.
+      </p>
+    </section>
+
+    <section class="section-title" id="articoli">
+      <h2>Le aree del blog</h2>
+      <p>Cinque percorsi per capire meglio le opportunità del digitale.</p>
+    </section>
+
+    <section class="grid">
+
+      <article class="card" id="facilitazione">
+        <span class="categoria">Facilitazione Digitale</span>
+        <h3>Cos’è un Punto Digitale Facile?</h3>
+        <p>
+          Uno spazio dove i cittadini possono ricevere supporto per usare meglio
+          smartphone, computer e servizi online.
+        </p>
+        <p>
+          Qui racconteremo quando chiedere aiuto, quali attività si possono svolgere
+          e perché la facilitazione digitale è importante per l’autonomia delle persone.
+        </p>
+        <a class="read-more" href="#">Leggi l’articolo →</a>
+      </article>
+
+      <article class="card" id="cie">
+        <span class="categoria">Identità Digitale</span>
+        <h3>CIE: la tua chiave per i servizi online</h3>
+        <p>
+          La Carta d’Identità Elettronica permette di accedere in modo sicuro
+          a molti servizi digitali della Pubblica Amministrazione.
+        </p>
+        <p>
+          Spiegheremo come funziona, cosa serve per usarla e quali passaggi
+          creano più difficoltà ai cittadini.
+        </p>
+        <a class="read-more" href="#">Leggi l’articolo →</a>
+      </article>
+
+      <article class="card" id="cybersicurezza">
+        <span class="categoria">Cybersicurezza</span>
+        <h3>Difendersi da truffe, messaggi falsi e furti di dati</h3>
+        <p>
+          La sicurezza digitale parte da piccoli comportamenti: password robuste,
+          attenzione ai link, protezione dei codici personali e aggiornamenti.
+        </p>
+        <p>
+          In questa sezione parleremo di rischi reali e regole semplici per evitarli.
+        </p>
+        <a class="read-more" href="#">Leggi l’articolo →</a>
+      </article>
+
+      <article class="card" id="pa">
+        <span class="categoria">Servizi Digitali PA</span>
+        <h3>La Pubblica Amministrazione online, senza perdersi</h3>
+        <p>
+          Certificati, pagamenti, domande, prenotazioni e comunicazioni:
+          molti servizi pubblici oggi passano dal digitale.
+        </p>
+        <p>
+          L’obiettivo è capire dove andare, cosa serve e come completare una procedura.
+        </p>
+        <a class="read-more" href="#">Leggi l’articolo →</a>
+      </article>
+
+      <article class="card" id="fse">
+        <span class="categoria">Salute Digitale</span>
+        <h3>Fascicolo Sanitario Elettronico: documenti sanitari sempre accessibili</h3>
+        <p>
+          Il FSE permette di consultare referti, ricette, prescrizioni e altri documenti
+          legati alla propria salute.
+        </p>
+        <p>
+          Una sezione pensata per cittadini, caregiver e famiglie che vogliono gestire
+          meglio le informazioni sanitarie.
+        </p>
+        <a class="read-more" href="#">Leggi l’articolo →</a>
+      </article>
+
+    </section>
+
+    <section class="notice">
+      <h2>Nota per l’esercitazione</h2>
+      <p>
+        I pulsanti “Leggi l’articolo” sono per ora segnaposto. Quando saranno disponibili
+        i testi definitivi, potremo trasformare ogni sezione in un vero articolo oppure
+        creare pagine separate per ciascun argomento.
+      </p>
+    </section>
+
+    <section class="info-band">
+      <div class="info-item">
+        <strong>5</strong>
+        Aree tematiche dedicate ai cittadini
+      </div>
+
+      <div class="info-item">
+        <strong>1</strong>
+        Blog dimostrativo pubblicato con GitHub Pages
+      </div>
+
+      <div class="info-item">
+        <strong>0</strong>
+        Linguaggio burocratico inutile
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    Esercitazione corso di facilitazione digitale
+    <div class="footer-inner">
+      <div>
+        <strong>Digitale Facile</strong><br>
+        Blog dimostrativo per corso di facilitazione digitale
+      </div>
+
+      <div>
+        Ispirato ai temi di Punto Digitale Facile e Repubblica Digitale<br>
+        Esercitazione didattica
+      </div>
+    </div>
   </footer>
 
 </body>
